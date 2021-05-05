@@ -102,17 +102,14 @@ instance Functor (List Z) where
 instance Functor (List n) =>Functor (List (S n)) where
  fmap f (Cons x xs) = f x `Cons` fmap f xs
 
-instance Foldable(List Z) where
-
-
 ----
 -- Foldable List
 
+instance Foldable(List Z) where
  foldr f b xs = b
 
 instance Foldable (List n) => Foldable (List (S n)) where
  foldr f b (Cons x xs) = f x (foldr f b xs)
-
 
 ----
 -- Applicative List
